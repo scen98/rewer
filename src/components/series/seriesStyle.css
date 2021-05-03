@@ -1,0 +1,105 @@
+.season-grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.season-grid:hover{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.adder-panel{
+    background: rgba(185, 42, 40, 0.6);
+    padding: 1%;
+    border-radius: 5px;
+}
+
+.edit-episode-row{
+    display: grid;
+    grid-template-columns: 50% 30% 10%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.selected-row{
+    background: #870000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #190A05, #870000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #190A05, #870000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.selected-row:hover{
+    background: #870000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #190A05, #870000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #190A05, #870000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.edit-episode-row:hover{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.add-episode{
+    background: #e52d27;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #b31217, #e52d27);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #b31217, #e52d27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    min-height: 80px;
+    font-size: 60px;
+    text-align: center;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;;
+}
+
+.add-episode:hover{
+    cursor: pointer;
+    background: #FF416C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    cursor: pointer;
+}
+
+.series-title{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.side-row{
+    display: grid;
+    grid-template-columns: auto 80px;
+    border-radius: 7px;
+    padding: 2px;
+}
+
+.side-row .score{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.side-row:hover{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-width: 1px;
+    border-color: maroon;
+    padding: 1px;
+}
+
+.side-row p{
+    font-size: 18px;
+    font-weight: bolder;
+    cursor: pointer;
+    margin: 0;
+    padding: 10px;
+}

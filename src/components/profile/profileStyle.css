@@ -1,0 +1,213 @@
+.form-container {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    /*background-color: #2196F3; */
+  }
+.form-item {
+    font-size: 20px;
+    padding: 8px;
+    width: 90%;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  /*background-color: #2196F3; */
+}
+.profile-grid-item {
+  font-size: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: center;
+}
+
+.profile-grid textarea{
+  resize: none;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  margin: 10px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: rgb(53, 163, 163);
+  border-radius: 5px;;
+}
+
+.file-input{
+  width: 100%;
+  font-size: 14px;
+  padding: 1px;
+  margin: auto;
+  outline: none;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  margin: 2%;
+  margin-top: 10px;
+  height: auto;
+  border-style: solid;
+  border-width: 3px;
+  border-color: rgb(53, 163, 163);
+  border-radius: 5px;;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .3s ease;
+  background-color:  rgba(124, 185, 209, 0.4);
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.user-grid{
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.user-grid p {
+  padding: 10px;
+}
+
+.user-grid img{
+  width: 90%;
+  max-width: 300px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: gray;
+  padding: 1%;
+}
+
+.follow{
+  background: #e52d27;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #b31217, #e52d27);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #b31217, #e52d27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  border-radius: 4px;
+}
+
+.follow svg{
+  margin-right: 5px;
+}
+
+.follow:hover{
+  background: #cb2d3e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ef473a, #cb2d3e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ef473a, #cb2d3e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+}
+
+.unfollow{
+  background: transparent;
+  color: rgba(180, 180, 180, 0.7);
+}
+
+.unfollow svg{
+  margin-right: 5px;
+}
+
+.unfollow{
+  background: #cb2d3e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ef473a, #cb2d3e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ef473a, #cb2d3e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+
+.followed-user-row{
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 7px;
+  border-radius: 8px;
+  color: white;
+}
+
+.followed-user-row:hover{
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-color: maroon;
+  padding: 6px;
+  border-width: 1px;
+}
+
+.followed-user-row-item{
+  width: 100%;
+}
+
+.followed-user-row img{
+  height: 70px;
+  width: 70px;
+  object-position: 50% 0%;
+  object-fit: cover;
+}
+
+.followed-user-row p{
+  text-align: right;
+}
+
+.user-row{
+  display: grid;
+  grid-template-columns: 20% auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.user-row p{
+  color: white;
+  padding-left: 10px;
+  padding-right: 30px;
+}
+
+.user-row .name{
+  font-size: 18px;
+}
+
+.user-row img{
+  width: 95%;
+}
+
+.avatar{
+  width: 50px;
+  height: 50px;
+  object-position: 50% 0%;
+  object-fit: cover;
+  border-radius: 50%;
+  border-color: rgb(173, 26, 16);
+  border-style: solid;
+  border-width: 1px;
+  margin-top: 10px;
+}
+
+.nickname-input{
+  width: 200px;
+}
+
+.about{
+  width: 90%; 
+  max-width: 90%
+}
+
+.user-name{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.user-name button{
+  height: 36px;
+}
+
+.user-name p{
+  margin-left: 15px;
+}

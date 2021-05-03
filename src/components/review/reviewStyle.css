@@ -1,0 +1,264 @@
+.score-btn{
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.minus{
+    background: #F00000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #DC281E, #F00000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #DC281E, #F00000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.minus:hover{
+    background: #FF416C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}
+
+.plus{
+    background: #56ab2f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.plus:hover{
+    background: #76b852;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8DC26F, #76b852);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8DC26F, #76b852); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}
+
+.my-review-container{
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+.score-grid{
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.score-item{
+    padding: 5px;
+}
+
+.score-adder-grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+textarea{
+    background-color: rgb(102, 95, 95);
+    color: white;
+    border-radius: 4px;
+    outline-style: none;
+    outline-color: red;
+}
+
+textarea:focus{
+    outline-color: rgb(9, 255, 0);
+}
+
+.review-grid{
+    display: grid;
+    grid-template-columns: 60px auto auto;
+    margin-bottom: 10px;
+}
+
+.review-grid p {
+    margin-top: 0px;
+    margin-left: auto;
+}
+
+.review-grid div{
+    margin-left: auto;
+}
+
+.nick-name{
+    font-size: 22px;
+    padding-top: 5%;
+    margin-bottom: auto;
+    margin-left: 10px;
+}
+
+.review-container{
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 0.5%;
+    margin-top: 5%;
+    margin-bottom: 1%;
+    padding-bottom: 10px;   
+}
+
+.user-review-row-m{
+    display: grid;
+    grid-template-columns: auto 60px;
+}
+
+.review-low{
+    border-color: rgb(185, 16, 16);
+}
+
+.review-medium{
+    border-color: orange;
+}
+
+.review-high{
+    border-color: rgb(55, 185, 16);
+}
+
+.review-nick-name{
+    text-align: left;
+}
+
+.review-grid .score{
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+.review-date{
+    font-style: italic;
+    margin-left: auto;
+    margin-right: 5px;
+}
+
+.movie-title{
+    font-weight: bolder;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.review-grid button{
+    margin: auto;
+    width: 60px;
+    margin-top: 20px;
+}
+
+.up-arrow{
+    font-size: 20px;
+}
+
+.down-arrow{
+    font-size: 22px;
+}
+
+.down-arrow:active{
+    color:gray;
+}
+
+.unliked{
+    color: gray;
+}
+
+
+
+.liked{
+    color:green;
+}
+
+.disliked{
+    color: red;
+}
+
+@media (hover: hover) {
+    .down-arrow:hover{
+        color:#FF6666;
+        cursor: pointer;
+    }
+
+    .up-arrow:hover{
+        color: #66ff66;
+        cursor: pointer;
+    }
+}
+
+.pop-index{
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+.clickable{
+    color: rgb(202, 67, 50);
+    font-size: 18px;
+  }
+  
+.clickable:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.review-text{
+    text-align: justify;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.followed-review-grid{
+    display: grid;
+    grid-template-columns: 200px auto;
+}
+
+.review-poster-container{ 
+    padding: 15px;
+    padding-top: 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+.review-poster-container:hover{ 
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.review-poster-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.review-poster-container p{
+    text-align: center;
+    font-size: 18px;
+}
+
+.title-high{
+    color: #34eb4c;
+    background-color: transparent;
+}
+
+.title-medium{
+    color: #ebae36;
+}
+
+.title-low{
+    color: #c21919;
+}
+
+.delete-icon{
+    color: rgb(245, 117, 117);
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;;
+}
+
+.delete-icon:hover{
+    color: rgb(212, 26, 26);
+}
+
+.like-adder{
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+.review-textarea{
+    width: 90%;
+}

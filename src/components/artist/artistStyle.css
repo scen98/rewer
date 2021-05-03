@@ -1,0 +1,181 @@
+.name-input{
+    font-size: 20px;
+}
+
+.detail-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+@media (min-width: 300px) {
+    .span-2 {
+        grid-column: auto / span 2;
+    }
+}
+
+.detail-grid-item{
+
+}
+
+.place-input{
+    width: 80%;
+}
+
+.file-input{
+    width: 80%;
+    font-size: 14px;
+    padding: 1px;
+    margin: auto;
+    outline: none;
+}
+
+textarea{
+    width: 90%;
+    margin: auto;
+    padding: 2px;
+    font-size: 16px;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.portrait-container{
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+    height: 0;
+}
+
+.portrait{
+    width: 95%;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    border-color: rgb(134, 155, 214);
+}
+
+.info-grid h1, h2, h3{
+    margin: auto;
+}
+
+.info-portrait{
+    max-width: 300px;
+    width: 90%;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    border-color: rgb(134, 155, 214);
+    margin-right: 5%;
+    margin-top: 2%;
+}
+/*
+@media screen and (max-width: 600px) {
+    .info-portrait{
+        max-width: 100px;
+    }
+  } */
+
+
+.artist-row{
+    min-height: 50px;
+    max-height: 150px;
+    font-size: 15px;
+    display: grid;
+    grid-template-columns: 15% 65% 20%;
+    padding: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: 0px;
+    border-style: solid;
+    border-width: 1px;
+    border-bottom-width: 0.5px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-collapse: collapse;
+}
+
+.artist-row:hover{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.selected-row{
+    background: #870000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #190A05, #870000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #190A05, #870000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.artist-row img{
+    height: 100%;
+    height: 100px;
+    width: 70px;
+    object-position: 50% 0%;
+    object-fit: cover; /* MERT FIREFOX :)))) */
+}
+
+.artist-row p{
+    margin: 5%;
+    font-size: 18px;
+}
+
+.artist-name{
+    font-size: 19px;
+}
+
+.adder-panel{
+    background: #ED213A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 1%;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.adder-panel span, input, button{
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.adder-panel a{
+    text-decoration: none;
+    color: white;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.adder-panel a:hover{
+    text-decoration: underline;
+    color: greenyellow;
+}
+
+.info-grid{
+    display: grid;
+    grid-template-columns: auto 30%;
+}
+
+.info-grid-item{
+    padding: 0 20px;
+    text-align: justify;
+}
+
+.standard-artist-grid{
+    display: grid;
+    grid-template-columns: 140px auto;
+    margin-bottom: 1%;
+    margin-top: 15px;
+}
+
+.standard-artist-grid img{
+    height: 200px;
+    width: 140px;
+    object-position: 50% 0%;
+    object-fit: cover; /* MERT FIREFOX :)))) */
+}
+
+.standard-artist-grid p{
+    color: white;
+    padding-left: 10px;
+    padding-right: 30px;
+}
+
+.standard-artist-grid .name{
+    font-size: 18px;
+}

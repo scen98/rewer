@@ -1,0 +1,157 @@
+.edit-cast-row-container{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+
+.edit-cast-row{
+    display: grid;
+    grid-template-columns: 90px 20% 25% 25% 10% 10%;
+    min-height: 75px;
+    max-height: 150px;
+    font-size: 15px;
+    padding: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: 0px;
+}
+
+.edit-cast-row-mobile-row-1{
+    display: grid;
+    grid-template-columns: 80px auto;
+}
+
+.edit-cast-row-mobile-row-2{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.mobile-cast-input{
+    width: 90%;
+}
+
+.edit-cast-row-mobile-row-1 img{
+    height: 100px;
+    width: 70px;
+    object-position: 50% 0%;
+    object-fit: cover; /* MERT FIREFOX :)))) */
+}
+
+.edit-cast-row-mobile-row-1 p{
+    font-size: 17px;
+    margin-left: auto;
+    margin-right: 5px;
+}
+
+.edit-cast-row-mobile-row-1 input{
+    padding: 5%;
+    max-height: 20px;
+    width: 90%;
+    margin: auto;
+}
+
+.edit-cast-row p{
+    font-size: 17px;
+}
+
+.edit-cast-row input{
+    height: 35px;
+    margin-top: 10px;
+    padding: 2%;
+}
+
+.edit-cast-row select{
+    margin: 8%;
+    margin-top: 10px;
+    height: 35px;
+}
+
+.edit-cast-row img{
+    height: 120px;
+    width: 84px;
+    object-position: 50% 0%;
+    object-fit: cover; /* MERT FIREFOX :)))) */
+}
+
+.edit-cast-row button{
+    height: 35px;
+    margin-top: 10px;
+}
+
+
+.unsaved{
+    background: #485563;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #29323c, #485563);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #29323c, #485563); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}
+
+.cast-row{
+    display: grid;
+    grid-template-columns: 80px auto auto;
+    min-height: 100px;
+    max-height: 1000px;
+    font-size: 15px;
+    padding: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: 0px;
+    text-align: left;
+}
+
+.series-cast-row{
+    display: grid;
+    grid-template-columns: 80px auto auto auto;
+    min-height: 100px;
+    max-height: 1000px;
+    font-size: 15px;
+    padding: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: 0px;
+    text-align: left;
+}
+
+.cast-row-item{
+    text-align: left;
+}
+
+.cast-row img, .series-cast-row img{
+    height: 100px;
+    width: 70px;
+    object-position: 50% 0%;
+    object-fit: cover; /* MERT FIREFOX :)))) */
+}
+
+.cast-row p, .series-cast-row p{
+    font-size: 17px;
+    text-align: right;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.cast-row a, .series-cast-row a{
+    font-size: 17px;
+}
+
+.line-start{
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+}
+
+.line-end{
+    text-align: right;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.cast-row span, .series-cast-row span{
+    font-size: 17px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+

@@ -1,0 +1,95 @@
+.topnav {
+    overflow: hidden;
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    z-index: 9999;
+    width: 100%;
+  }
+
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+/* ebből már nem tudom miért van kettő, de bízok benne hogy volt rá okom */
+  .topnav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bolder;
+      border-width: 1px;
+      border-right-style: solid;
+      border-color: rgba(23, 35, 51, 0);
+      border-radius: 5px;
+      transition: all 1s ease;
+  }
+
+  .topnav span{
+    margin-left: 10px;
+  }
+
+  .fa-sign-out-alt{
+    float: right;
+    color: #b41e1e;
+    font-size: 24px;
+    text-align: center;
+    padding: 14px 16px;
+  }
+
+  .topnav a:hover {  
+    color: #ff0000;
+    transition: 0.6s;
+  }
+
+  .topnav svg:hover{
+    color: #ff0000;
+  }
+  
+  .topnav a.active {
+    background: #f6214b; /* fallback for old browsers */
+     color: white;
+  }
+  
+  .topnav .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .logged{
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0f9b0f, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0f9b0f, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
