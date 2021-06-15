@@ -42,7 +42,11 @@ export default function Search() {
             setMainMsg("Server error: could not download data.");
         }
         const searchCount = result.movies.length + result.games.length + result.artists.length + result.users.length + result.articles.length;
-        if(searchCount === 0) setMainMsg("No results were found.");
+        if(searchCount === 0) {
+            setMainMsg("No results were found.");
+        } else {
+            setMainMsg("");
+        }
         changeParam({name: "keyword", value: word });
         setIsLoading(false);
     }
@@ -73,7 +77,7 @@ export default function Search() {
             <label>Movies:</label>
             <input checked={filters.movies} name="movies" type="checkbox" onChange={()=>{ setFilters({ ...filters, movies: !filters.movies }) }} className="search-cb" />
             <label>Games:</label>
-            <input checked={filters.movies} name="games" type="checkbox" onChange={()=>{ setFilters({ ...filters, games: !filters.games }) }} className="search-cb" />
+            <input checked={filters.games} name="games" type="checkbox" onChange={()=>{ setFilters({ ...filters, games: !filters.games }) }} className="search-cb" />
             <label>Series:</label>
             <input checked={filters.series} name="series" type="checkbox" onChange={()=>{ setFilters({ ...filters, series: !filters.series }) }} className="search-cb" />
             <label>Artists:</label>

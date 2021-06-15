@@ -5,7 +5,7 @@ const express = require('express');
 const controller = express.Router();
 controller.use(express.json());
 const multer = require("multer");
-const sharp = require("sharp");
+const jimp = require('jimp');
 controller.use(userSession());
 
 const storage = multer.diskStorage({
@@ -23,27 +23,25 @@ const storage = multer.diskStorage({
  
 const upload = multer({ storage: storage });
 
-controller.post("/upload_poster", upload.single("poster"), (req:any, res: any) => {
+controller.post("/upload_poster", upload.single("poster"), (req, res) => {
   try {
-    saveFiles(req, res);
+    resizeImage(req, res);
   } catch(err){
     return returnError(res, err);
   }
 });
 
-const saveFiles = (req, res) =>{
-  sharp(req.file.path).resize({ width: 150 }).toFile(`${__dirname}/../uploads/posters/small-${req.file.originalname}`, (err, resizeImage)=>{
-    if(err){
-      returnError(res, err);
-    } 
+const resizeImage = (req, res)=>{
+  jimp.read(req.file.path)
+  .then(img => {
+    img.resize(300, jimp.AUTO).quality(100).write(`${__dirname}/../uploads/posters/medium-${req.file.originalname}`);
+    img.resize(150, jimp.AUTO).quality(100).write(`${__dirname}/../uploads/posters/small-${req.file.originalname}`);     
+     return return200(res);
+  })
+  .catch(err => {
+    returnError(res, err);
   });
-  sharp(req.file.path).resize({ width: 300 }).toFile(`${__dirname}/../uploads/posters/medium-${req.file.originalname}`, (err, resizeImage)=>{
-    if(err){
-      returnError(res, err);
-    }
-  });
-  return200(res);
-};
+}
 
 controller.post('/select_detailed_movie', async function (req:any, res:any) {
   try{

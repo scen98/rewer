@@ -4,7 +4,7 @@ import { isImage, return200, returnError } from "../midwares/midutils";
 import selectLatestPreviewSeries, { selectDetailedSeries, insertSeries, updateSeries, insertEpisode, deleteSeries } from "../midwares/seriesMWare";
 const multer = require("multer");
 const controller = express.Router();
-const sharp = require("sharp");
+const jimp = require("jimp");
 controller.use(express.json());
 
 controller.use(userSession());
@@ -74,24 +74,23 @@ var storage = multer.diskStorage({
   
   controller.post("/upload_series_poster", upload.single("poster"), (req:any, res: any) => {
     try{
-        saveFiles(req, res);
+      resizeImage(req, res);
     } catch(err){
         returnError(res, err);
     }
   });
 
-  const saveFiles = (req, res) =>{
-    sharp(req.file.path).resize({ width: 150 }).toFile(`${__dirname}/../uploads/seriesposters/small-${req.file.originalname}`, (err, resizeImage)=>{
-      if(err){
-        returnError(res, err);
-      } 
+  
+  const resizeImage = (req, res)=>{
+    jimp.read(req.file.path)
+    .then(img => {
+      img.resize(300, jimp.AUTO).quality(100).write(`${__dirname}/../uploads/seriesposters/medium-${req.file.originalname}`);
+      img.resize(150, jimp.AUTO).quality(100).write(`${__dirname}/../uploads/seriesposters/small-${req.file.originalname}`);     
+       return return200(res);
+    })
+    .catch(err => {
+      returnError(res, err);
     });
-    sharp(req.file.path).resize({ width: 300 }).toFile(`${__dirname}/../uploads/seriesposters/medium-${req.file.originalname}`, (err, resizeImage)=>{
-      if(err){
-        returnError(res, err);
-      }
-    });
-    return200(res);
-  };
+  }
 
 module.exports = controller;

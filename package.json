@@ -2,7 +2,7 @@
   "name": "rewer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://szben.eu/rewer",
+  "homepage": "http://szben.click/rewer",
   "proxy": "http://127.0.0.1:4000",
   "secure": false,
   "dependencies": {

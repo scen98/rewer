@@ -8,9 +8,7 @@ var controller = express.Router();
 controller.use(express.json());
 controller.use(userSession());
 module.exports = controller;
-const sharp = require("sharp");
-sharp.cache({ files : 0 });
-
+const jimp = require("jimp");
 
 var storage = multer.diskStorage({
   destination: function (req:any, file:any, cb:any) {
@@ -29,25 +27,23 @@ var upload = multer({ storage: storage });
  
 controller.post("/upload_portrait", upload.single("portrait"), (req:any, res: any) => {
     try{
-      saveFiles(req, res);
+      resizeImage(req, res);
     } catch(err){
       returnError(res, err);
     }
 });
 
-const saveFiles = (req, res) =>{
-  sharp(req.file.path).resize({ width: 150 }).toFile(`${__dirname}/../uploads/portraits/small-${req.file.originalname}`, (err, resizeImage)=>{
-    if(err){
-      returnError(res, err);
-    } 
+const resizeImage = (req, res)=>{
+  jimp.read(req.file.path)
+  .then(img => {
+    img.resize(300, jimp.AUTO).quality(100).write(`${__dirname}/../uploads/portraits/medium-${req.file.originalname}`);
+    img.resize(150, jimp.AUTO).quality(100).write(`${__dirname}/../uploads/portraits/small-${req.file.originalname}`);     
+     return return200(res);
+  })
+  .catch(err => {
+    returnError(res, err);
   });
-  sharp(req.file.path).resize({ width: 300 }).toFile(`${__dirname}/../uploads/portraits/medium-${req.file.originalname}`, (err, resizeImage)=>{
-    if(err){
-      returnError(res, err);
-    }
-  });
-  return200(res);
-};
+}
 
 controller.post('/select_artists_by_keyword', async function (req:any, res:any) {
   try{

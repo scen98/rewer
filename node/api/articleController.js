@@ -45,8 +45,7 @@ var controller = express.Router();
 controller.use(express.json());
 controller.use(sessionConfig_1.userSession());
 module.exports = controller;
-var sharp = require("sharp");
-sharp.cache({ files: 0 });
+var jimp = require('jimp');
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, __dirname + "/../uploads/articles");
@@ -65,24 +64,22 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 controller.post("/upload_article_image", upload.single("image"), function (req, res) {
     try {
-        saveFiles(req, res);
+        resizeImage(req, res);
     }
     catch (err) {
         midutils_1.returnError(res, err);
     }
 });
-var saveFiles = function (req, res) {
-    sharp(req.file.path).resize({ width: 150 }).toFile(__dirname + "/../uploads/articles/small-" + req.file.originalname, function (err, resizeImage) {
-        if (err) {
-            midutils_1.returnError(res, err);
-        }
+var resizeImage = function (req, res) {
+    jimp.read(req.file.path)
+        .then(function (img) {
+        img.resize(300, jimp.AUTO).quality(100).write(__dirname + "/../uploads/articles/medium-" + req.file.originalname);
+        img.resize(150, jimp.AUTO).quality(100).write(__dirname + "/../uploads/articles/small-" + req.file.originalname);
+        return midutils_1.return200(res);
+    })
+        .catch(function (err) {
+        midutils_1.returnError(res, err);
     });
-    sharp(req.file.path).resize({ width: 300 }).toFile(__dirname + "/../uploads/articles/medium-" + req.file.originalname, function (err, resizeImage) {
-        if (err) {
-            midutils_1.returnError(res, err);
-        }
-    });
-    midutils_1.return200(res);
 };
 controller.post('/insert_article', function (req, res) {
     return __awaiter(this, void 0, void 0, function () {

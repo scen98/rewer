@@ -14,10 +14,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getConnection = exports.connectInfo = void 0;
 var mysql = require('mysql2/promise');
 exports.connectInfo = {
-    host: 'mi3-ss57.a2hosting.com',
-    user: 'szbeneu_rewer',
-    database: 'szbeneu_rew',
-    password: 'RewerNode'
+    host: 'de12.fcomet.com',
+    user: 'szbencli_rewer',
+    database: 'szbencli_rew',
+    password: 'rewer90'
 };
 function getConnection() {
     var pool = mysql.createPool(__assign(__assign({}, exports.connectInfo), { waitForConnections: true, connectionLimit: 10, queueLimit: 0 }));

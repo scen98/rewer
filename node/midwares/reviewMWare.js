@@ -61,7 +61,7 @@ function insertReview(req, res) {
                         return [2 /*return*/, false];
                     if (!midutils_1.isUserLogged)
                         return [2 /*return*/, midutils_1.return403(res, "This action requires a running session on the server.")];
-                    if (req.session.user.userName !== res.body.userName)
+                    if (req.session.user.userName !== req.body.userName)
                         return [2 /*return*/, midutils_1.return403(res)];
                     return [4 /*yield*/, midutils_1.withMysql(function (conn) { return __awaiter(_this, void 0, void 0, function () {
                             var newId;

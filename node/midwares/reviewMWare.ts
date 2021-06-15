@@ -5,7 +5,7 @@ import { getLimiter, isUserLogged, return200, return400, return403, return404, r
 export async function insertReview(req:any, res: any){
     if(!validateProperties(res, req.body, ["entryId", "userName"])) return false;
     if(!isUserLogged) return return403(res, "This action requires a running session on the server.");
-    if(req.session.user.userName !== res.body.userName) return return403(res);
+    if(req.session.user.userName !== req.body.userName) return return403(res);
     await withMysql(
         async (conn)=>{
             if(await doesReviewExistQuery(conn, req.body)){

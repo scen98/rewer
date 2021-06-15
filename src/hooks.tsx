@@ -109,21 +109,22 @@ export function useImage(path: string, fileName: string, size = ESize.Normal, tr
 
 export function useRatio<T>(ratio: number){
     const ref = useRef<T>();
+
+    const trySetheight = () => {
+        try{
+            setHeight();
+        } catch{
+            console.log("Resize of undefined object.")
+        }   
+    }
+
     const listen = () => {
         setHeight();
-        window.addEventListener("resize", ()=>{
-            try{
-                setHeight();
-            } catch{
-                console.log("Resize of undefined object.")
-            }    
-        });
+        window.addEventListener("resize", trySetheight);
     }
 
     const cleanUp = ()=>{
-        window.removeEventListener("resize", ()=>{
-            setHeight();
-        })
+        window.removeEventListener("resize", trySetheight);
     }
 
     const setHeight = ()=>{

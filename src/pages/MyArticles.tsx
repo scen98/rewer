@@ -35,7 +35,11 @@ export default function MyArticles() {
         if(myArticles){
             setArticles(myArticles);
             if(myArticles.length === articlePerPage) addListener();
-            if(myArticles.length === 0) setMainMsg("You haven't written any articles yet.");
+            if(myArticles.length === 0){
+                setMainMsg("You haven't written any articles yet.");
+            } else {
+                setMainMsg("");
+            }
         }
         setIsLoading(false);
     }
@@ -58,6 +62,7 @@ export default function MyArticles() {
         const newId = await articleCaller(newArticleCopy, articlePath.insertArticle, ECallType.INSERT);
         if(newId){
             setArticles([{ ...newArticleCopy, id: newId }, ...articles.current ]);
+            setMainMsg("");
         } else {
             messenger.addFail("Server error: could not add new article.");
         }
@@ -91,7 +96,6 @@ export default function MyArticles() {
                 <input value={keyword} onChange={(e)=>{ setKeyword(e.target.value) }} onKeyDown={(e)=>{ onEnter(e, getMyArticles) }} type="text" placeholder="Search" />
                 <button onClick={getMyArticles} >Search</button>                
             </div>
-            <p>{mainMsg}</p>
             <MyArticleList articles={articles.current} onUpdate={updateArticle} onDelete={deleteArticle} />
             <ListLoad text={mainMsg} isLoading={isLoading} />
         </div>

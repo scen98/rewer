@@ -65,7 +65,7 @@ var userMWare_1 = __importStar(require("../midwares/userMWare"));
 var multer = require("multer");
 var controller = express_1.default.Router();
 controller.use(express_1.default.json());
-var sharp = require("sharp");
+var jimp = require("jimp");
 controller.use(sessionConfig_1.userSession());
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -85,25 +85,22 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 controller.post("/upload_avatar", upload.single("avatar"), function (req, res) {
     try {
-        saveFiles(req, res);
+        resizeImage(req, res);
     }
     catch (err) {
         return midutils_1.returnError(res, err);
     }
 });
-//TODO i know its shit, but this has no async support
-var saveFiles = function (req, res) {
-    sharp(req.file.path).resize({ width: 150 }).toFile(__dirname + "/../uploads/avatars/small-" + req.file.originalname, function (err, resizeImage) {
-        if (err) {
-            midutils_1.returnError(res, err);
-        }
+var resizeImage = function (req, res) {
+    jimp.read(req.file.path)
+        .then(function (img) {
+        img.resize(300, jimp.AUTO).quality(100).write(__dirname + "/../uploads/avatars/medium-" + req.file.originalname);
+        img.resize(150, jimp.AUTO).quality(100).write(__dirname + "/../uploads/avatars/small-" + req.file.originalname);
+        return midutils_1.return200(res);
+    })
+        .catch(function (err) {
+        midutils_1.returnError(res, err);
     });
-    sharp(req.file.path).resize({ width: 300 }).toFile(__dirname + "/../uploads/avatars/medium-" + req.file.originalname, function (err, resizeImage) {
-        if (err) {
-            midutils_1.returnError(res, err);
-        }
-    });
-    midutils_1.return200(res);
 };
 controller.post('/login', function (req, res) {
     return __awaiter(this, void 0, void 0, function () {

@@ -64,7 +64,7 @@ var midutils_1 = require("../midwares/midutils");
 var seriesMWare_1 = __importStar(require("../midwares/seriesMWare"));
 var multer = require("multer");
 var controller = express_1.default.Router();
-var sharp = require("sharp");
+var jimp = require("jimp");
 controller.use(express_1.default.json());
 controller.use(sessionConfig_1.userSession());
 controller.post("/select_detailed_series", function (req, res) {
@@ -205,23 +205,21 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 controller.post("/upload_series_poster", upload.single("poster"), function (req, res) {
     try {
-        saveFiles(req, res);
+        resizeImage(req, res);
     }
     catch (err) {
         midutils_1.returnError(res, err);
     }
 });
-var saveFiles = function (req, res) {
-    sharp(req.file.path).resize({ width: 150 }).toFile(__dirname + "/../uploads/seriesposters/small-" + req.file.originalname, function (err, resizeImage) {
-        if (err) {
-            midutils_1.returnError(res, err);
-        }
+var resizeImage = function (req, res) {
+    jimp.read(req.file.path)
+        .then(function (img) {
+        img.resize(300, jimp.AUTO).quality(100).write(__dirname + "/../uploads/seriesposters/medium-" + req.file.originalname);
+        img.resize(150, jimp.AUTO).quality(100).write(__dirname + "/../uploads/seriesposters/small-" + req.file.originalname);
+        return midutils_1.return200(res);
+    })
+        .catch(function (err) {
+        midutils_1.returnError(res, err);
     });
-    sharp(req.file.path).resize({ width: 300 }).toFile(__dirname + "/../uploads/seriesposters/medium-" + req.file.originalname, function (err, resizeImage) {
-        if (err) {
-            midutils_1.returnError(res, err);
-        }
-    });
-    midutils_1.return200(res);
 };
 module.exports = controller;

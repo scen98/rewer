@@ -58,7 +58,9 @@ export async function selectPreviewSeriresByKeywordQuery(conn, keyword: string, 
     const series: IPreviewQuery[] = result[0];  
     if(!series){
         return null;
-        
+    }
+    if(series.length === 0){
+        return [];
     }
     const entries = await selectPreviewEntriesBySeries(conn, series.map(s=> s.id));
     return series.map(s=> {

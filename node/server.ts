@@ -51,7 +51,7 @@ app.post(backendPath + "/auto-complete", async (req, res)=>{
 });
 
 app.get([
-  "/rewer/home", 
+  "/rewer/home",
   "/rewer/news",
   "/rewer/movie", 
   "/rewer/series",

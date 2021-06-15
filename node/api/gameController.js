@@ -43,7 +43,7 @@ var express = require('express');
 var controller = express.Router();
 controller.use(express.json());
 var multer = require("multer");
-var sharp = require("sharp");
+var jimp = require("jimp");
 controller.use(sessionConfig_1.userSession());
 module.exports = controller;
 var storage = multer.diskStorage({
@@ -64,24 +64,22 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 controller.post("/upload_poster", upload.single("poster"), function (req, res) {
     try {
-        saveFiles(req, res);
+        resizeImage(req, res);
     }
     catch (err) {
         return midutils_1.returnError(res, err);
     }
 });
-var saveFiles = function (req, res) {
-    sharp(req.file.path).resize({ width: 150 }).toFile(__dirname + "/../uploads/posters/small-" + req.file.originalname, function (err, resizeImage) {
-        if (err) {
-            midutils_1.returnError(res, err);
-        }
+var resizeImage = function (req, res) {
+    jimp.read(req.file.path)
+        .then(function (img) {
+        img.resize(300, jimp.AUTO).quality(100).write(__dirname + "/../uploads/posters/medium-" + req.file.originalname);
+        img.resize(150, jimp.AUTO).quality(100).write(__dirname + "/../uploads/posters/small-" + req.file.originalname);
+        return midutils_1.return200(res);
+    })
+        .catch(function (err) {
+        midutils_1.returnError(res, err);
     });
-    sharp(req.file.path).resize({ width: 300 }).toFile(__dirname + "/../uploads/posters/medium-" + req.file.originalname, function (err, resizeImage) {
-        if (err) {
-            midutils_1.returnError(res, err);
-        }
-    });
-    midutils_1.return200(res);
 };
 controller.post('/insert_game', function (req, res) {
     return __awaiter(this, void 0, void 0, function () {

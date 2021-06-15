@@ -16,12 +16,16 @@ interface IMovieInfo{
 }
 
 export const MovieInfo: React.FC<IMovieInfo> = ({movie, defaultName}) => {
-    const [imgsrc, onImgError] = useImage("/rewer/uploads/posters", `${movie.id}.jpg`, ESize.Normal);
+    const [imgsrc, onImgError, setSrc] = useImage("/rewer/uploads/posters", `${movie.id}.jpg`, ESize.Normal);
     const [loader, setLoader] = useState<ILoader>({ status: ELoaderStatus.Loading });
 
     useEffect(()=>{
         preloadImage(imgsrc);
     }, []);
+
+    useEffect(()=>{
+        setSrc("/rewer/uploads/posters", `${movie.id}.jpg`);
+    }, [movie.id]);
 
     useEffect(()=>{
         if(defaultName !== movie.title){

@@ -1,10 +1,10 @@
 const mysql = require('mysql2/promise');
 
 export const connectInfo = {
-    host: 'mi3-ss57.a2hosting.com',
-    user: 'szbeneu_rewer',
-    database: 'szbeneu_rew',
-    password: 'RewerNode'
+    host: 'de12.fcomet.com',
+    user: 'szbencli_rewer',
+    database: 'szbencli_rew',
+    password: 'rewer90'
 }
 
 export function getConnection(){

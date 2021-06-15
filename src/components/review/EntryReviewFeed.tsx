@@ -32,6 +32,7 @@ export const EntryReviewFeed: React.FC<IEntryReviewFeed> = ({entry}: IEntryRevie
     }, []);
 
     useEffect(()=>{
+        setMainMsg("");
         if(isEntryReleased(entry)){
             if(orderBy === EReviewOrderBy.popIndex){
                 if(entry.id > 0) getReviews();

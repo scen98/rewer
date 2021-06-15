@@ -23,13 +23,13 @@ export default async function mainSearch(req, res){
         filter = req.body.filter;
     }
     const limiter = getLimiter(req.body.limit, 0);
-    await withMysql(
+    await withMysql( 
         async (conn)=>{ //advenced search engine right here
             const movies = filter.movies === true ? await selectMoviesByKeywordQuery(conn, req.body.keyword, limiter.limit) : [];
-            const games = filter.games === true ? await selectGamesByKeywordQuery(conn, req.body.keyword, limiter.limit) : [];
+            const games =  filter.games === true ? await selectGamesByKeywordQuery(conn, req.body.keyword, limiter.limit) : [];
             const series = filter.series === true ?  await selectPreviewSeriresByKeywordQuery(conn, req.body.keyword, limiter.limit, 0) : [];
-            const artists = filter.artists === true ?  await selectArtistsByKeywordQuery(conn, req.body.keyword, limiter.limit, 0) : [];
-            const users = filter.users === true ?  await selectUsersByKeywordQuery(conn, req.body.keyword, limiter.limit) : [];
+            const artists =  filter.artists === true ?  await selectArtistsByKeywordQuery(conn, req.body.keyword, limiter.limit, 0) : [];
+            const users =  filter.users === true ?  await selectUsersByKeywordQuery(conn, req.body.keyword, limiter.limit) : [];
             const articles = filter.articles === true ? await selectLatestArticlesQuery(conn, req.body.keyword, limiter.limit, 0) : [];
             return returnData(res, { movies, games, series, artists, users, articles });
         }, 

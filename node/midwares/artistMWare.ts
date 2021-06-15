@@ -69,7 +69,7 @@ export async function deleteArtist(req, res){
     if(!validateProperties(res, req.body, ["id"])) return false;
     await withMysql(
         async (conn)=>{
-            if(await deleteArtistQuery(conn, req.body)){
+            if(await deleteArtistQuery(conn, req.body.id)){
                 return return200(res);
             }
             return return500(res);

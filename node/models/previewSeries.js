@@ -111,6 +111,9 @@ function selectPreviewSeriresByKeywordQuery(conn, keyword, limit, offset) {
                     if (!series) {
                         return [2 /*return*/, null];
                     }
+                    if (series.length === 0) {
+                        return [2 /*return*/, []];
+                    }
                     return [4 /*yield*/, entryQueries_1.selectPreviewEntriesBySeries(conn, series.map(function (s) { return s.id; }))];
                 case 2:
                     entries = _a.sent();
